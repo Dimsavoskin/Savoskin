@@ -1,14 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="100dp"
-    android:background="@drawable/item_background_color">
+    android:id="@+id/cityLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/item_background_color"
+    android:orientation="vertical">
 
     <TextView
-        android:id="@+id/city_title"
-        android:layout_width="wrap_content"
-        android:textColor="@color/item_text_color"
+        android:id="@+id/cityName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textColor="@drawable/item_text_color"
+        android:textSize="@dimen/textsize_20" />
+
+    <ImageView
+        android:id="@+id/cityPhoto"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
 </LinearLayout>

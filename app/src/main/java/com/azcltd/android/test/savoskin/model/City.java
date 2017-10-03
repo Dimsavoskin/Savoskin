@@ -1,10 +1,13 @@
 package com.azcltd.android.test.savoskin.model;
 
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class City {
+public class City implements Parcelable {
 
     @SerializedName("id")
     @Expose
@@ -20,10 +23,41 @@ public class City {
     private String imageUrl;
     @SerializedName("country")
     @Expose
-    private Object country;
+    private String country;
     @SerializedName("location")
     @Expose
     private Location location;
+
+    protected City(Parcel in) {
+        id = in.readInt();
+        name = in.readString();
+        description = in.readString();
+        imageUrl = in.readString();
+        country = in.readString();
+        location = in.readParcelable(Location.class.getClassLoader());
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeInt(id);
+        parcel.writeString(name);
+        parcel.writeString(description);
+        parcel.writeString(imageUrl);
+        parcel.writeString(country);
+        parcel.writeParcelable(location, 0);
+    }
+
+    public static final Creator<City> CREATOR = new Creator<City>() {
+        @Override
+        public City createFromParcel(Parcel in) {
+            return new City(in);
+        }
+
+        @Override
+        public City[] newArray(int size) {
+            return new City[size];
+        }
+    };
 
     public Integer getId() {
         return id;
@@ -61,7 +95,7 @@ public class City {
         return country;
     }
 
-    public void setCountry(Object country) {
+    public void setCountry(String country) {
         this.country = country;
     }
 
@@ -72,4 +106,11 @@ public class City {
     public void setLocation(Location location) {
         this.location = location;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+
 }

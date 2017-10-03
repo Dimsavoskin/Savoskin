@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">Savoskin</string>
+    <string name="app_name">Cities</string>
+
+    <string name="endPoint">http://azcltd.com/testTask/android/</string>
+
+    <string name="empty_data_error">Data is empty. You can try again later</string>
+    <string name="dialog_error_title">Loading error</string>
+    <string name="dialog_error_message">Try again?</string>
 </resources>

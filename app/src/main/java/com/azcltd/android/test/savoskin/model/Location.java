@@ -3,9 +3,7 @@ package com.azcltd.android.test.savoskin.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-/**
- * Created by dr_ne_000 on 28.08.2014.
- */
+
 public class Location implements Parcelable {
 
     public double latitude;
@@ -17,9 +15,9 @@ public class Location implements Parcelable {
     }
 
     @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeDouble(this.latitude);
-        dest.writeDouble(this.longitude);
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeDouble(this.latitude);
+        parcel.writeDouble(this.longitude);
     }
 
     public Location() {
